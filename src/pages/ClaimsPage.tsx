@@ -50,6 +50,38 @@ function ClaimsPage() {
     }
   ];
 
+  const timeline = [
+    {
+      phase: "Establishment",
+      duration: "4 months",
+      milestones: [
+        "Legal structure setup",
+        "Process documentation",
+        "Technology implementation",
+        "Initial team hiring"
+      ]
+    },
+    {
+      phase: "Market Entry",
+      duration: "8 months",
+      milestones: [
+        "First 20 cases handled",
+        "Partnership network development",
+        "Marketing campaign launch",
+        "Service refinement"
+      ]
+    },
+    {
+      phase: "Expansion",
+      duration: "Year 2",
+      milestones: [
+        "Regional expansion",
+        "Team growth",
+        "Service diversification",
+        "Technology enhancement"
+      ]
+    }
+  ];
 
   return (
     <div className="container mx-auto px-6 py-12">
@@ -91,6 +123,61 @@ function ClaimsPage() {
         </div>
 
         {/* Right Column - Financials & Timeline */}
-        
+        <div className="space-y-8">
+          {/* Financials */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-2xl font-semibold mb-4 flex items-center">
+              <DollarSign className="w-6 h-6 mr-2 text-blue-600" />
+              Financial Overview
+            </h2>
+            <div className="space-y-4">
+              <div className="border-b pb-3">
+                <p className="text-gray-600">Startup Costs</p>
+                <p className="text-2xl font-bold text-blue-600">$75,000</p>
+              </div>
+              <div className="border-b pb-3">
+                <p className="text-gray-600">Year 1 Revenue Target</p>
+                <p className="text-2xl font-bold text-blue-600">$300,000</p>
+              </div>
+              <div className="border-b pb-3">
+                <p className="text-gray-600">Year 3 Revenue Target</p>
+                <p className="text-2xl font-bold text-blue-600">$1,500,000</p>
+              </div>
+              <div>
+                <p className="text-gray-600">Breakeven Timeline</p>
+                <p className="text-2xl font-bold text-blue-600">10 months</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <h2 className="text-2xl font-semibold mb-6 flex items-center">
+              <TrendingUp className="w-6 h-6 mr-2 text-blue-600" />
+              Implementation Timeline
+            </h2>
+            <div className="space-y-6">
+              {timeline.map((phase, index) => (
+                <div key={index} className="border-l-2 border-blue-200 pl-4">
+                  <h3 className="text-lg font-semibold text-blue-600 mb-2">
+                    {phase.phase} ({phase.duration})
+                  </h3>
+                  <ul className="space-y-2">
+                    {phase.milestones.map((milestone, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-gray-700">{milestone}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default ClaimsPage;
